@@ -37,6 +37,8 @@ streamer = lambda do |chunk, remaining_bytes, total_bytes|
     @buf << chunk  	
   	#buf << chunk
 	#sio = StringIO.new( chunk )
+	
+	# Zlib::GzipReader loads input in 2048 byte chunks
 	if @buf.size > 2048
 		puts "doing a read"
 		puts @buf.read
